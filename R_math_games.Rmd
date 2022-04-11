@@ -1,0 +1,45 @@
+---
+title: "R_math_games"
+Author: "Helen_Liu & Yikang"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+#假设我有一个快递a,他被扔在了2000个快递里，我每次取一个快递找，我平均要取多少次能找到我的快递？
+sum_1 <- 0  #建立空数据，用于储存
+x = function(a) {
+  #定义数字区间
+  for (i in 1:a)
+  {
+    sum <- 1/a * i
+    sum_1 <- sum_1 + sum
+    }
+  return(sum_1)
+} 
+x(2000)
+#假设我有两个快递a,b，他们被扔在了2000个快递里，我每次取一个快递找，我平均要取多少次能找全我的两个快递？
+sum_denominator <- 0  #建立空数据
+x = function(n) {
+  #定义总量
+  for (i in 2:(n-1))
+  { 
+     sum <- sum((length(i:n)):n)
+     sum_denominator <- sum_denominator + sum
+     #print(sum_denominator)
+  }
+  average_pick <- (sum_denominator + n)/(sum(1:(n-1)))
+  return(average_pick)
+} 
+x(2000)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
